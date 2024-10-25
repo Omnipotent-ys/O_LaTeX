@@ -1,0 +1,168 @@
+%在LaTeX中组织多个文件——将每章内容单独写在一个文件中
+%使用 \include{<filename>} 会在读入前另起一页
+%使用 \input{<filename>} 则会纯粹的插入文件里的内容
+%     以上的<filename>最好不要有空格、特殊字符、中文等、
+
+% LaTeX还提供了一个\includeonly{filelist}命令组织文件
+% 导言区使用了 \includeonly 后，正文中不在其列表范围的 \include 命令不会起效：
+% \includeonly{⟨filename1⟩,⟨filename2⟩,…}
+
+%具体路径使用方法如下
+% \include{chapters/file} % 相对路径
+% \include{/home/Bob/file} % *nix（包含 Linux、macOS）绝对路径
+% \include{D:/file} % Windows 绝对路径，用正斜线
+
+
+
+\documentclass[]{ctexart} %article ,book , report , letter
+%\documentclass{} 指定了 【文档类】
+%\documentclass[<options>]{<class-name>}
+
+
+%可选参数<options> 可以全局地规定一些排版的参数，如字号，纸张，单双面等
+%e.g. \documentclass[11pt,twoside,a4paper]{article}
+%     意思是调用 article 文档类排版文章，指定纸张为 A4 大小，基本字号为 11pt，双面排版
+
+
+% ##在\documentclass{}和\begin{document}之间为 【导言区】##
+
+\usepackage{amssymb , amsmath}
+%\usepackage[⟨options⟩]{⟨package-name⟩} 调用 【宏包】
+
+
+
+\title {My First Practice}
+\author{Omniotent-ys Lamaper}
+\date{Oct 12 , 2024}
+   
+
+
+\begin{document}
+
+Practice\\
+Hell\"o \LaTeX\ world!\\  %\LaTeX{} 和 \LaTeX\空格 的效果一致
+Hell\'o \LaTeX{} world!\\
+Shall we call ourselves
+\TeX users
+or \TeX{} users?
+
+% LaTeX的环境用法:
+% \begin{<environment name>}[<optional arguments>]{<mandatory arguments>}
+% ...
+% \end{<environment name>}
+
+
+Français Português Español Føroyskt
+
+
+
+
+
+
+
+
+
+
+\maketitle %为了使上面的标题、作者和日期正常显示
+Hello \LaTeX!   \\
+
+
+%你好 \LaTeX!
+% $$中间输出的是数学公式，没在里面输出的是文本模式
+% 其中一个$包围的是行内公式，两个$$则是行间公式
+ Let $f(x)$ be difined by the formula.
+ $f (x)=3x^2+4x+3$.
+ $$f (x)=3x^2+4x+3$$ 
+ which is a polynomial of degree 2.
+ $$ $$
+ Try to output formulas.
+$$+ - \times \div$$
+$$> < \ge \le \ne \approx \equiv$$
+$$\cap \cup \in \notin \subset \subseteq$$  
+
+$$ \subsetneqq $$
+$$\forall \exists $$  
+$$\nexists$$
+$$\mathbb{R}~~~~~\mathbb{Q} \mathbb{N} \mathbb{N^*} \mathbb{N_+} \mathbb{Z}$$
+$ mathbb{N} $
+$$\cdots \vdots \ddots$$
+$$\infty \partial \propto $$
+$$\sin x   \arctan x   \tanh x$$
+$$\lim\limits_{x \to x_0}f(x)=L$$
+$$\max\limits_{a \le x \le b}{f(x)}=M$$
+
+$$1 - \frac{x^2}{2} \sim \cos x$$
+
+
+%求和、求积
+$\sum$\quad $\prod$\quad $\sum_i$\quad $\sum_{i=0}^N$
+ \quad $\frac{\sum_{i=0}^N x_i}{\prod_{i=0}^N x_i}$
+ \quad $\frac{\sum\limits_{i=0}^N x_i}{\prod\limits_{i
+ =0}^N x_i}$
+ %积分
+$\int$\quad $\iint$\quad $\iiint$\quad $\oint$
+ \quad $\int_{−\infty}^0 f (x)d{x}$
+ \quad $\int_{−\infty}^0 f (x) \, \textrm{d{x}}$
+ \quad $\int\limits_{−\infty}^0 f (x) \, \textrm{d{x}}$
+
+
+$ \mathbb{R} $
+
+
+\begin{tabular}{ccc}
+ %无括号环境
+
+$\begin{matrix}
+ a & b & \cdots & c \\
+ \vdots& \vdots & \ddots &\vdots \\
+ e & f & \cdots & g \\
+ \end{matrix}$ &
+
+ %圆括号环境
+
+$\begin{pmatrix}
+ a & b & \cdots & c \\
+ \vdots& \vdots & \ddots &\vdots \\
+ e & f & \cdots & g \\
+ \end{pmatrix}$ &
+
+ %方括号环境
+
+$\begin{bmatrix}
+     a &    b   & \cdots & c     \\
+ \vdots& \vdots & \ddots &\vdots \\
+     e &    f   & \cdots & g     \\
+ \end{bmatrix}$
+
+ \end{tabular}
+
+$
+\begin{bmatrix}
+   a & b \\
+   c & d \\
+\end{bmatrix}
+$
+$$Thank~you~very~much!$$
+%  \begin{multicols }{3}
+%  %单竖线环境
+% \(\ begin{vmatrix}
+% a&b&\cdots & c \\
+%  \vdots&\vdots &\ddots &\vdots \\
+%  e & f &\cdots &g \\
+%  \end{vmatrix}\)
+%  %大括号环境
+% \(\begin{Bmatrix}
+%  a&b&\cdots & c \\
+%  \vdots&\vdots &\ddots &\vdots \\
+%  e & f &\cdots &g \\
+%  \end{Bmatrix}\)
+%  %双竖线环境
+% \(\begin{Vmatrix}
+%  a&b&\cdots & c \\
+%  \vdots&\vdots &\ddots &\vdots \\
+%  e & f &\cdots &g \\
+%  \end{Vmatrix}\)
+%  \end{multicols}
+
+\end{document}
+
